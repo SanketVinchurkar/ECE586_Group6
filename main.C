@@ -45,13 +45,14 @@ string instruction = s.substr(s.find("")+1);
 //convert instruction from hex to binary
 unsigned int bits=bitset<32>(stoi(instruction,nullptr,16)).to_ulong();
 		 
-
+/*
 struct bits{
     uint32_t opcode : 7;
     uint32_t rd : 5;
     uint32_t funct3 : 3;
     uint32_t rs1 : 5;
 };
+*/
 
 //set into opcode field
 unsigned int opcode=bits & 0xFF;
