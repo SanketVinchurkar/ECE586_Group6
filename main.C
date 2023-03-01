@@ -1,11 +1,14 @@
-#include<stdio.h>
-
+#include <cstdint>
+#include <string>
+#include <iostream>
+#include <fstream>
+#include <sstream>
+#include <cstring>
+using namespace std;;
 int main(int argc, char* argv[])
 {
 
-proc sim;
-
-   if(argc == 1)
+   if(argc < 2)
    {
 	cout<<"Please provide trace path and mode";
    }
@@ -24,53 +27,22 @@ proc sim;
 	 string line;
 	 while(getline(my_file, line))
               {
+		  string s;
                   istringstream iss(line);
-                  string s;
-		  int command;
-		  string address;
-		  unsigned int int_address;
-                  int string_count = 0;
-                  while (getline(iss, s, ' '))
-                     {
-                      if(string_count == 0)
-                         {
-		            command = stoi(s);
-                            string_count = 1;
-                         }
-                      else
-                         {
-			   address = s;
-                         }
-                     }
-              if(mode=="normal")
-              sim.NormalMode=1;
-              else if(mode=="silent")
-              sim.NormalMode=0;
-              if(sim.NormalMode==1)
-              {
-              cout<<"\n--------------------------------------------------------------------------------------"<<endl;
-		      cout<<"Command = "<<command<<" Address = "<<address<<"\n";
+		  while (getline(iss, s))
+		  {
+			  cout<<s<<"\n";
 		  }
-           //   int_address = proc.HexToDec(address);
-///////////////  code for riscv starts here////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-
-
-
-
-
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-              
-		      
-               }
+///////////////////////////////////////////
+		 
+		 
+		 
+//////////////////////////////////////////
+	      }
      }
-     else
-    {
-   	cout<<"Unable to open any file";
-    }
    }
-   
-   return 0;
-  
 }
+
+
+
+
