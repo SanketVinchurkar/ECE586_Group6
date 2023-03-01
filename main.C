@@ -44,25 +44,40 @@ string instruction = s.substr(s.find("")+1);
 		 
 //convert instruction from hex to binary
 unsigned int bits=bitset<32>(stoi(instruction,nullptr,16)).to_ulong();
+		 
+
+struct bits{
+    uint32_t opcode : 7;
+    uint32_t rd : 5;
+    uint32_t funct3 : 3;
+    uint32_t rs1 : 5;
+};
+
 //set into opcode field
 unsigned int opcode=bits & 0xFF;
 		 
 // Defining every format
-typedef struct R_format {
+struct R_format {
     uint32_t opcode : 7;
     uint32_t rd : 5;
     uint32_t funct3 : 3;
     uint32_t rs1 : 5;
     uint32_t rs2 : 5;
     uint32_t funct7 : 7;
-} R;	
+} ;	
 
 
 switch(opcode)
 {
 	// For R-type Format	
 case 0110011:	
-       
+        R_format R;
+        R.rd=bit.substr((31-11), 5);  
+	R.funct3=bit.substr((31-14), 3);
+	R.rs1=bit.substr((31-19), 5);
+	R.rs2=bit.substr((31-24), 5);
+	R.funct7=bit.substr(31, 7);
+		
 }
 //////////////////////////////////////////
 	      }
