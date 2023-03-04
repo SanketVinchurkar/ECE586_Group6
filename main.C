@@ -123,6 +123,9 @@ case 0110011:
 	R.rs1=bit.substr((31-19), 5);
 	R.rs2=bit.substr((31-24), 5);
 	R.funct7=bit.substr(31, 7);
+		
+	// Implement its instruction depending on funct3 and funct7 (add,sub etc.). Use if-else.	
+		
 	// For I-format
 case 0010011:	
         I_format I;
